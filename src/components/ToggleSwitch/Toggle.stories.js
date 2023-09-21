@@ -11,50 +11,19 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?node-id=28%3A269&mode=dev",
+      url: "https://www.figma.https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?type=design&node-id=42-17602&mode=dev/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?node-id=28%3A269&mode=dev",
     }
   },
   // This component will have an automatically generated Autodocs page
   tags: ['autodocs'],
   argTypes: {
-    image: {
-      control: { type: 'select', options: ['/assets/iconAdd.svg'] },
-    },
   }
 };
 
 // More on writing stories with args
 export const Primary = {
   args: {
-    label: 'Button',
-  },
-};
-
-export const filled = {
-  args: {
-    label: 'Button',
-    buttonStyle: 'filled',
-  },
-};
-
-export const outlined = {
-  args: {
-    label: 'Button',
-    buttonStyle: 'outlined',
-  },
-};
-
-export const disabled = {
-  args: {
-    label: 'Button',
-    disabled: true,
-  },
-};
-
-export const withIcon = {
-  args: {
-    label: 'Button',
-    icon: '/iconAdd.svg',
+    label: 'Toggle',
   },
 };
 
