@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -13,7 +13,6 @@ const Input = ({
   name,
   onChange,
   placeholder,
-  value,
   disabled,
   isRequeried,
   messageError,
@@ -37,7 +36,7 @@ const Input = ({
   };
 
   const handleKeyDown = (event) => {
-    if ((event.key === "Enter" || event.key === "Tab") && isRequeried && !value) {
+    if ((event.key === "Enter" || event.key === "Tab") && isRequeried && !event.target.value) {
       setShowError(true);
     } else {
       setShowError(false);
@@ -87,7 +86,6 @@ const Input = ({
             name={name}
             onChange={onChange}
             placeholder={placeholder}
-            value={value}
             disabled={disabled}
             required={isRequeried}
             className={`py-3 px-4 border border-solid rounded-xl w-full ${modeValueState}`}
@@ -149,10 +147,6 @@ Input.propTypes = {
    */
   placeholder: PropTypes.string,
   /**
-   * The value of the input
-   */
-  value: PropTypes.string,
-  /**
    * The disabled state of the input
    */
   disabled: PropTypes.bool,
@@ -188,7 +182,6 @@ Input.defaultProps = {
   name: "",
   onChange: () => { },
   placeholder: "Escribe",
-  value: "",
   disabled: false,
   isRequeried: false,
   icon: "",
