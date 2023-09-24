@@ -47,7 +47,6 @@ export const InputPassword = {
     label: 'Input',
     type: 'password',
     placeholder: 'Password',
-    value: 'password',
   },
 };
 
@@ -76,7 +75,6 @@ export const InputErrorWhitMessage = {
     label: 'Input',
     type: 'text',
     placeholder: 'Placeholder',
-    value: "Jhon Doe",
     valueState: 'Error',
     isRequeried: true,
     messageError: 'Error al buscar al cliente',
