@@ -30,33 +30,41 @@ export const Primary = {
   },
 };
 
-export const filled = {
+export const ButtonFilled = {
   args: {
     label: 'Button',
     buttonStyle: 'filled',
   },
 };
 
-export const outlined = {
+export const Buttonoutlined = {
   args: {
     label: 'Button',
     buttonStyle: 'outlined',
   },
 };
 
-export const disabled = {
+export const Buttondisabled = {
   args: {
     label: 'Button',
     disabled: true,
   },
 };
 
-export const withIcon = {
+export const ButtonWithIcon = {
   args: {
     label: 'Button',
     icon: '/iconAdd.svg',
   },
 };
+
+export const ButtonOnlyIcon = {
+  args: {
+    icon: '/iconAdd.svg',
+    onlyIcon: true,
+  },
+};
+
 
 
 
