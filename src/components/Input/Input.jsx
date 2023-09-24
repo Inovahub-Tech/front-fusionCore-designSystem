@@ -25,11 +25,10 @@ const Input = ({
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-    if (!!messageError) {
-      setContentMessageError(messageError)
-    } else {
-      console.log("entro?")
+    if (!messageError) {
       setContentMessageError('Campo requerido')
+    } else {
+      setContentMessageError(messageError)
     }
   }, [messageError])
 
