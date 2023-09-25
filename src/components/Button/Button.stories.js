@@ -58,6 +58,20 @@ export const withIcon = {
   },
 };
 
+export const warning = {
+  args: {
+    label: 'Button',
+    buttonStyle: 'warning',
+  },
+};
+
+export const danger = {
+  args: {
+    label: 'Button',
+    buttonStyle: 'danger',
+  },
+};
+
 
 
 
