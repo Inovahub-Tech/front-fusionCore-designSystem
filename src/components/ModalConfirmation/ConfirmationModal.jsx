@@ -10,6 +10,8 @@ const Modals = ({
   detail: Detail,
   cancelLabel,
   confirmLabel,
+  onClickCancel,
+  onClickConfirm,
 }) => {
   const [isOpenModal, closeModal] = useModal(true);
 
@@ -38,12 +40,14 @@ const Modals = ({
         <Button
           buttonStyle="outlined"
           label={cancelLabel}
-          className="border-gray text-gray"
+          onClick={onClickCancel}
         ></Button>
         <Button
           buttonStyle="filled"
           label={confirmLabel}
           backgroundColor={typeModal}
+          color="white"
+          onClick={onClickConfirm}
         ></Button>
       </div>
     </Modal>
@@ -56,6 +60,8 @@ Modals.propTypes = {
   detail: PropTypes.elementType.isRequired,
   cancelLabel: PropTypes.string.isRequired,
   confirmLabel: PropTypes.string.isRequired,
+  onClickCancel: PropTypes.func.isRequired,
+  onClickConfirm: PropTypes.func.isRequired,
 };
 
 export default Modals;

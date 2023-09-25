@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -14,7 +13,7 @@ export const Button = ({
   icon,
   size,
   label,
-  className,
+  onlyIcon,
   ...props
 }) => {
   const modeBackgroundColor = classNames({
@@ -37,39 +36,42 @@ export const Button = ({
     "text-lg": size === "large",
   });
 
-  const modeButtonStyle = classNames({
-    "font-bold py-3 px-4 rounded-2xl inline-flex justify-center items-center":
-      buttonStyle === "filled",
-    "font-bold py-3 px-4 rounded-2xl inline-flex justify-center items-center border-secondary border-solid border bg-inherit text-secondary hover:bg-tertiary hover:text-white":
-      buttonStyle === "outlined",
-    "font-bold py-3 px-4 rounded-2xl bg-primary text-white inline-flex justify-center items-center":
-      buttonStyle === "filled" &&
-      (!backgroundColor ||
-        backgroundColor === null ||
-        !color ||
-        color === null),
-    "font-bold py-3 px-4 rounded-2xl text-primary border-primary border-solid border bg-inherit inline-flex justify-center items-center hover:bg-tertiary hover:text-white":
-      buttonStyle === "outlined" &&
-      (!backgroundColor ||
-        backgroundColor === null ||
-        !color ||
-        color === null),
-  });
+  const modeButtonStyle = classNames(
+    "font-bold inline-flex justify-center items-center",
+    {
+      "p-2 rounded-full": buttonStyle === "filled" && onlyIcon,
+      "py-3 px-4 rounded-2xl": buttonStyle === "filled" && !onlyIcon,
+    },
+    {
+      "bg-primary text-white rounded-2xl":
+        buttonStyle === "filled" &&
+        (!backgroundColor ||
+          backgroundColor === null ||
+          !color ||
+          color === null),
+      "border-primary border-solid border bg-inherit text-primary hover:bg-tertiary hover:text-white rounded-2xl  ":
+        buttonStyle === "outlined" &&
+        (!backgroundColor ||
+          backgroundColor === null ||
+          !color ||
+          color === null),
+    }
+  );
 
   const modeDisabled = classNames({
     "bg-secondary cursor-not-allowed": disabled,
   });
 
   const modeIcon = classNames({
-    "w-3.5 h-3.5": icon && modeSize === "text-base",
-    "w-6 h-6": icon && modeSize === "text-lg",
-    "w-1 h-1": icon && modeSize === "text-sm",
+    "w-3.5 h-3.5": icon && size === "small",
+    "w-6 h-6": icon && size === "medium",
+    "w-1 h-1": icon && size === "large",
   });
 
   return (
     <button
       type="button"
-      className={` ${className} w-full ${modeSize} ${modeButtonStyle} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${
+      className={` w-full ${modeSize} ${modeButtonStyle} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${
         icon && "gap-2"
       }`}
       disabled={disabled}
@@ -126,12 +128,13 @@ Button.propTypes = {
    * Button click handler
    * @default undefined
    * */
-  onClick: PropTypes.func,
+
   /**
-   * Class name
-   * @default ""
-   * */
-  className: PropTypes.string,
+   *  Button only icon
+   * @default false
+   *
+   *  */
+  onlyIcon: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -143,5 +146,5 @@ Button.defaultProps = {
   icon: null,
   disabled: false,
   onClick: undefined,
-  className: "",
+  onlyIcon: false,
 };

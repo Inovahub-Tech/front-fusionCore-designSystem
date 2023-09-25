@@ -35,6 +35,12 @@ export const ModalWarning = {
     },
     cancelLabel: "Cancelar",
     confirmLabel: "Deshabilitar",
+    onClickCancel: () => {
+      alert("Cancelado");
+    },
+    onClickConfirm: () => {
+      alert("Deshabilitado");
+    },
   },
 };
 
@@ -51,5 +57,11 @@ export const ModalDanger = {
     },
     cancelLabel: "Cancelar",
     confirmLabel: "Eliminar",
+    onClickCancel: () => {
+      alert("Cancelado");
+    },
+    onClickConfirm: () => {
+      alert("Eliminado");
+    },
   },
 };

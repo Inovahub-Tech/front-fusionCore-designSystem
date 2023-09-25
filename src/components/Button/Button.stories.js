@@ -30,47 +30,57 @@ export const Primary = {
   },
 };
 
-export const filled = {
+export const ButtonFilled = {
   args: {
     label: 'Button',
     buttonStyle: 'filled',
   },
 };
 
-export const outlined = {
+export const Buttonoutlined = {
   args: {
     label: 'Button',
     buttonStyle: 'outlined',
   },
 };
 
-export const disabled = {
+export const Buttondisabled = {
   args: {
     label: 'Button',
     disabled: true,
   },
 };
 
-export const withIcon = {
+export const ButtonWithIcon = {
   args: {
     label: 'Button',
     icon: '/iconAdd.svg',
   },
 };
 
-export const warning = {
+export const ButtonWarning = {
   args: {
     label: 'Button',
-    buttonStyle: 'warning',
+    backgroundColor: 'warning',
+    color:"white"
   },
 };
 
-export const danger = {
+export const ButtonDanger = {
   args: {
     label: 'Button',
-    buttonStyle: 'danger',
+    backgroundColor: 'danger',
+    color:"white"
   },
 };
+
+export const ButtonOnlyIcon = {
+  args: {
+    icon: '/iconAdd.svg',
+    onlyIcon: true,
+  },
+};
+
 
 
 
