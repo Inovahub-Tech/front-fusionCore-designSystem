@@ -10,69 +10,58 @@ export const Button = ({
   backgroundColor,
   color,
   disabled,
+  borderColor,
   icon,
   size,
   label,
-  onlyIcon,
   ...props
 }) => {
   const modeBackgroundColor = classNames({
     "bg-primary": backgroundColor === "primary",
     "bg-secondary": backgroundColor === "secondary",
     "bg-tertiary": backgroundColor === "tertiary",
+    "bg-white": backgroundColor === "white",
     "bg-danger": backgroundColor === "danger",
     "bg-warning": backgroundColor === "warning",
+  });
+
+  const modeBorderColor = classNames({
+    "border-primary": borderColor === "primary",
+    "border-secondary": borderColor === "secondary",
+    "border-tertiary": borderColor === "tertiary",
+    "border-gray": borderColor === "gray",
   });
 
   const modeColor = classNames({
     "text-primary": color === "primary",
     "text-secondary": color === "secondary",
     "text-white": color === "white",
+    "text-gray": color === "gray",
   });
 
   const modeSize = classNames({
-    "text-sm": size === "small",
-    "text-base": size === "medium",
-    "text-lg": size === "large",
+    "text-xs rounded-xl": size === "small",
+    "text-sm rounded-2xl": size === "medium",
+    "text-lg rounded-3xl": size === "large",
   });
-
-  const modeButtonStyle = classNames(
-    "font-bold inline-flex justify-center items-center",
-    {
-      "p-2 rounded-full": buttonStyle === "filled" && onlyIcon,
-      "py-3 px-4 rounded-2xl": buttonStyle === "filled" && !onlyIcon,
-    },
-    {
-      "bg-primary text-white rounded-2xl":
-        buttonStyle === "filled" &&
-        (!backgroundColor ||
-          backgroundColor === null ||
-          !color ||
-          color === null),
-      "border-primary border-solid border bg-inherit text-primary hover:bg-tertiary hover:text-white rounded-2xl  ":
-        buttonStyle === "outlined" &&
-        (!backgroundColor ||
-          backgroundColor === null ||
-          !color ||
-          color === null),
-    }
-  );
 
   const modeDisabled = classNames({
     "bg-secondary cursor-not-allowed": disabled,
   });
 
   const modeIcon = classNames({
-    "w-3.5 h-3.5": icon && size === "small",
+    "w-4 h-4": icon && size === "small",
     "w-6 h-6": icon && size === "medium",
-    "w-1 h-1": icon && size === "large",
+    "w-7 h-7": icon && size === "large",
   });
 
   return (
     <button
       type="button"
-      className={` w-full ${modeSize} ${modeButtonStyle} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${
+      className={` w-full flex items-center justify-center  ${modeSize} ${modeBorderColor} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${
         icon && "gap-2"
+      } ${buttonStyle === "onlyIcon" ? "p-2 rounded-full" : "px-4 py-2"} ${
+        modeBorderColor && "border"
       }`}
       disabled={disabled}
       {...props}
@@ -94,16 +83,17 @@ Button.propTypes = {
     "tertiary",
     "danger",
     "warning",
+    "white",
   ]),
   /**
    * What color to use
    * @default null
    * */
-  color: PropTypes.oneOf(["primary", "secondary", "white"]),
+  color: PropTypes.oneOf(["primary", "secondary", "white", "gray"]),
   /**
    * Button contents
    */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   /**
    * Button size
    * @default medium
@@ -113,7 +103,7 @@ Button.propTypes = {
    * Button style
    * @default filled
    * */
-  buttonStyle: PropTypes.oneOf(["filled", "outlined"]),
+  buttonStyle: PropTypes.oneOf(["normal", "onlyIcon"]),
   /**
    * Button icon
    * @default null
@@ -128,13 +118,13 @@ Button.propTypes = {
    * Button click handler
    * @default undefined
    * */
+  onClick: PropTypes.func.isRequired,
 
   /**
-   *  Button only icon
-   * @default false
-   *
-   *  */
-  onlyIcon: PropTypes.bool,
+   * Border color
+   * @default null
+   * */
+  borderColor: PropTypes.oneOf(["primary", "secondary", "tertiary", "gray"]),
 };
 
 Button.defaultProps = {
@@ -146,5 +136,5 @@ Button.defaultProps = {
   icon: null,
   disabled: false,
   onClick: undefined,
-  onlyIcon: false,
+  borderColor: null,
 };

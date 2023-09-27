@@ -38,14 +38,19 @@ const Modals = ({
       </div>
       <div className="flex gap-3 pt-7">
         <Button
-          buttonStyle="outlined"
+          buttonStyle="normal"
           label={cancelLabel}
           onClick={onClickCancel}
+          backgroundColor="white"
+          color="gray"
+          borderColor="gray"
+          size="large"
         ></Button>
         <Button
-          buttonStyle="filled"
-          label={confirmLabel}
+          buttonStyle="normal"
           backgroundColor={typeModal}
+          size="large"
+          label={confirmLabel}
           color="white"
           onClick={onClickConfirm}
         ></Button>
