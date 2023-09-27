@@ -16,35 +16,31 @@ export default {
   },
   // This component will have an automatically generated Autodocs page
   tags: ['autodocs'],
-  argTypes: {
-    image: {
-      control: { type: 'select', options: ['/assets/iconAdd.svg'] },
-    },
-  }
+
 };
 
 // More on writing stories with args
-export const Primary = {
-  args: {
-    label: 'Button',
-  },
-};
 
 export const ButtonFilled = {
   args: {
     label: 'Button',
-    buttonStyle: 'filled',
+    buttonStyle: 'normal',
+    backgroundColor: 'primary',
+    color: 'white',
   },
 };
 
-export const Buttonoutlined = {
+export const ButtonOutlined = {
   args: {
     label: 'Button',
-    buttonStyle: 'outlined',
+    buttonStyle: 'normal',
+    backgroundColor: 'white',
+    color: 'primary',
+    borderColor: 'primary',
   },
 };
 
-export const Buttondisabled = {
+export const ButtonDisabled = {
   args: {
     label: 'Button',
     disabled: true,
@@ -54,6 +50,8 @@ export const Buttondisabled = {
 export const ButtonWithIcon = {
   args: {
     label: 'Button',
+    backgroundColor: 'primary',
+    color: 'white',
     icon: '/iconAdd.svg',
   },
 };
@@ -61,7 +59,8 @@ export const ButtonWithIcon = {
 export const ButtonOnlyIcon = {
   args: {
     icon: '/iconAdd.svg',
-    onlyIcon: true,
+    buttonStyle: "onlyIcon",
+    backgroundColor: 'primary',
   },
 };
 
