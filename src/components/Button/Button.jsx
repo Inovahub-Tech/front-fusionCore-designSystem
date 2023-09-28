@@ -16,24 +16,27 @@ export const Button = ({
   label,
   ...props
 }) => {
-
   const modeBackgroundColor = classNames({
     "bg-primary": backgroundColor === "primary",
     "bg-secondary": backgroundColor === "secondary",
     "bg-tertiary": backgroundColor === "tertiary",
     "bg-white": backgroundColor === "white",
+    "bg-danger": backgroundColor === "danger",
+    "bg-warning": backgroundColor === "warning",
   });
 
   const modeBorderColor = classNames({
     "border-primary": borderColor === "primary",
     "border-secondary": borderColor === "secondary",
     "border-tertiary": borderColor === "tertiary",
+    "border-gray": borderColor === "gray",
   });
 
   const modeColor = classNames({
     "text-primary": color === "primary",
     "text-secondary": color === "secondary",
     "text-white": color === "white",
+    "text-gray": color === "gray",
   });
 
   const modeSize = classNames({
@@ -52,12 +55,14 @@ export const Button = ({
     "w-7 h-7": icon && size === "large",
   });
 
-
   return (
     <button
       type="button"
-      className={` w-full flex items-center  ${modeSize} ${modeBorderColor} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${icon && "gap-2"
-        } ${buttonStyle === "onlyIcon" ? "p-2 rounded-full" : "px-4 py-2"} ${modeBorderColor && "border"}`}
+      className={` w-full flex items-center justify-center  ${modeSize} ${modeBorderColor} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${
+        icon && "gap-2"
+      } ${buttonStyle === "onlyIcon" ? "p-2 rounded-full" : "px-4 py-2"} ${
+        modeBorderColor && "border"
+      }`}
       disabled={disabled}
       {...props}
     >
@@ -72,12 +77,19 @@ Button.propTypes = {
    * What background color to use
    * @default null
    * */
-  backgroundColor: PropTypes.oneOf(["primary", "secondary", "tertiary"]),
+  backgroundColor: PropTypes.oneOf([
+    "primary",
+    "secondary",
+    "tertiary",
+    "danger",
+    "warning",
+    "white",
+  ]),
   /**
    * What color to use
    * @default null
    * */
-  color: PropTypes.oneOf(["primary", "secondary", "white"]),
+  color: PropTypes.oneOf(["primary", "secondary", "white", "gray"]),
   /**
    * Button contents
    */
@@ -112,7 +124,7 @@ Button.propTypes = {
    * Border color
    * @default null
    * */
-  borderColor: PropTypes.oneOf(["primary", "secondary", "tertiary"]),
+  borderColor: PropTypes.oneOf(["primary", "secondary", "tertiary", "gray"]),
 };
 
 Button.defaultProps = {
