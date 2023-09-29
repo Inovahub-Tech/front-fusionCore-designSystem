@@ -21,7 +21,7 @@ const Alert = ({ title, message, onClose, type, ...props }) => {
     });
 
     const alertClass = classNames({
-        "h-full": true,
+        "flex items-center justify-center min-h-full w-1/6": true,
         "bg-info": type === "information",
         "bg-warning": type === "caution",
         "bg-success": type === "success",
@@ -51,21 +51,21 @@ const Alert = ({ title, message, onClose, type, ...props }) => {
     });
 
     const messageClass = classNames({
-        "mt-2 text-darkgray": true,
+        "text-darkgray": true,
     });
 
     return (
         showAlert && (
-            <div className= "p-4 rounded-xl shadow-md flex items-center w-96 h-14" {...props}>
+            <div className= "rounded-xl overflow-hidden shadow-md flex items-center justify-items-start w-96 h-14" {...props}>
                 <div className={alertClass}>
                     <Icon className={iconClass} />
                 </div>
-                <div className="ml-4">
+                <div className="ml-2 my-2">
                     <div className={titleClass}>{title}</div>
                     <p className={messageClass}>{message}</p>
                 </div>
-                <div className="alert__close" onClick={handleClose}>
-                    <XMarkIcon className="h-6 w-6 text-gray-500" />
+                <div className="ml-auto mr-5" onClick={handleClose}>
+                    <XMarkIcon className="h-6 w-6 text-gray" />
                 </div>
             </div>
         )
