@@ -126,3 +126,5 @@ Button.defaultProps = {
   onClick: undefined,
   borderColor: null,
 };
+
+export default Button;

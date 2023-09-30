@@ -56,7 +56,7 @@ function Select({
       {label && (
         <label
           htmlFor={id}
-          className={`block text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
+          className={`text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
         >
           {label} {valueState === "Success" && <img src="/iconSuccess.svg" />}{" "}
           {valueState === "Error" && <img src="/iconError.svg" />}
@@ -84,7 +84,7 @@ function Select({
         </div>
 
         {isOpen && (
-          <ul className="origin-top-right absolute right-0 mt-2 w-56 rounded-md w-full shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <ul className="origin-top-right absolute right-0 mt-2 rounded-md w-full shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             {options.map((option) => (
               <li
                 key={option.value}
@@ -116,6 +116,14 @@ Select.propTypes = {
     "Information",
   ]),
   disabled: PropTypes.bool,
+};
+
+Select.defaultProps = {
+  onSelect: () => { },
+  label: "",
+  id: "",
+  valueState: "None",
+  disabled: false,
 };
 
 export default Select;
