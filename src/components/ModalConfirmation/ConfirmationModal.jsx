@@ -1,5 +1,9 @@
 import { useModal } from "../../hooks/useModal";
-import { XIcon, TrashIcon, MinusCircleIcon } from "@heroicons/react/outline";
+import {
+  XMarkIcon,
+  TrashIcon,
+  MinusCircleIcon,
+} from "@heroicons/react/24/outline";
 import Modal from "../Modal/Modal";
 import PropTypes from "prop-types";
 import { Button } from "../Button/Button";
@@ -35,7 +39,7 @@ const Modals = ({
         </div>
         <div className="flex flex-col self-start">
           <button onClick={closeModal}>
-            <XIcon className="w-7 h-7 text-chineseSilver hover:text-gray" />
+            <XMarkIcon className="w-7 h-7 text-chineseSilver hover:text-gray" />
           </button>
         </div>
       </div>
