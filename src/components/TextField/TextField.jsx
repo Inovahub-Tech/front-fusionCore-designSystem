@@ -1,20 +1,32 @@
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import TextBody from "../TextBody";
 
-const TextField = ({ label, placeholder, id, valueState, maxLength, onChange, name, disabled, isRequeried, messageError, ...props }) => {
-  const [contentMessageError, setContentMessageError] = useState('')
+const TextField = ({
+  label,
+  placeholder,
+  id,
+  valueState,
+  maxLength,
+  onChange,
+  name,
+  disabled,
+  isRequeried,
+  messageError,
+  ...props
+}) => {
+  const [contentMessageError, setContentMessageError] = useState("");
   const [showError, setShowError] = useState(false);
-  const [inputValue, setInputValue] = useState('');
-
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     if (!messageError) {
-      setContentMessageError('Campo requerido')
+      setContentMessageError("Campo requerido");
     } else {
-      setContentMessageError(messageError)
+      setContentMessageError(messageError);
     }
-  }, [messageError])
+  }, [messageError]);
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
@@ -78,19 +90,25 @@ const TextField = ({ label, placeholder, id, valueState, maxLength, onChange, na
         maxLength={maxLength}
         {...props}
       />
-      <p className="text-[#CCCCCC] text-xs font-normal self-end">
-        {charCount}/{maxLength}
-      </p>
-      <p>
-        {(showError || messageError) && (<p className="text-danger text-xs">
-          {contentMessageError}
-        </p>)}
-      </p>
+
+      <div className="flex justify-between">
+        {(showError || messageError) && (
+          <TextBody weight="regular" size="s" theme="danger">
+            {contentMessageError}
+          </TextBody>
+        )}
+        <TextBody
+          weight="regular"
+          size="s"
+          theme="chineseSilver"
+          alignment="end"
+        >
+          {charCount}/{maxLength}
+        </TextBody>
+      </div>
     </div>
-  )
-}
-
-
+  );
+};
 
 TextField.propTypes = {
   /**
@@ -147,12 +165,11 @@ TextField.defaultProps = {
   id: "",
   valueState: "None",
   maxLength: 100,
-  onChange: () => { },
+  onChange: () => {},
   name: "",
   disabled: false,
   isRequeried: false,
   messageError: "",
 };
-
 
 export default TextField;

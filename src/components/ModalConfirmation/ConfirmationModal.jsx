@@ -3,6 +3,7 @@ import { XIcon, TrashIcon, MinusCircleIcon } from "@heroicons/react/outline";
 import Modal from "../Modal/Modal";
 import PropTypes from "prop-types";
 import { Button } from "../Button/Button";
+import Headline from "../Headline/Headline";
 
 const Modals = ({
   typeModal,
@@ -27,12 +28,14 @@ const Modals = ({
               <MinusCircleIcon className="w-8 h-8 text-warning" />
             )}
           </div>
-          <h3 className="text-2xl font-bold leading-normal">{titleMessage}</h3>
+          <Headline variant="head" weight="bold" theme="black">
+            {titleMessage}
+          </Headline>
           <Detail />
         </div>
         <div className="flex flex-col self-start">
           <button onClick={closeModal}>
-            <XIcon className="w-5 h-5 text-chineseSilver" />
+            <XIcon className="w-7 h-7 text-chineseSilver hover:text-gray" />
           </button>
         </div>
       </div>
@@ -44,14 +47,14 @@ const Modals = ({
           backgroundColor="white"
           color="gray"
           borderColor="gray"
-          size="large"
+          size="medium"
         ></Button>
         <Button
           buttonStyle="normal"
           backgroundColor={typeModal}
-          size="large"
           label={confirmLabel}
           color="white"
+          size="medium"
           onClick={onClickConfirm}
         ></Button>
       </div>
