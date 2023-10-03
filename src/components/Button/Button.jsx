@@ -17,24 +17,27 @@ export const Button = ({
   className,
   ...props
 }) => {
-
   const modeBackgroundColor = classNames({
     "bg-primary": backgroundColor === "primary",
     "bg-secondary": backgroundColor === "secondary",
     "bg-tertiary": backgroundColor === "tertiary",
     "bg-white": backgroundColor === "white",
+    "bg-danger": backgroundColor === "danger",
+    "bg-warning": backgroundColor === "warning",
   });
 
   const modeBorderColor = classNames({
     "border-primary": borderColor === "primary",
     "border-secondary": borderColor === "secondary",
     "border-tertiary": borderColor === "tertiary",
+    "border-gray": borderColor === "gray",
   });
 
   const modeColor = classNames({
     "text-primary": color === "primary",
     "text-secondary": color === "secondary",
     "text-white": color === "white",
+    "text-gray": color === "gray",
   });
 
   const modeSize = classNames({
@@ -52,7 +55,6 @@ export const Button = ({
     "w-6 h-6": icon && size === "medium",
     "w-7 h-7": icon && size === "large",
   });
-
 
   return (
     <button
@@ -78,7 +80,7 @@ Button.propTypes = {
    * What color to use
    * @default null
    * */
-  color: PropTypes.oneOf(["primary", "secondary", "white"]),
+  color: PropTypes.oneOf(["primary", "secondary", "white", "gray"]),
   /**
    * Button contents
    */

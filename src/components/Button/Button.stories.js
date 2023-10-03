@@ -54,11 +54,37 @@ export const ButtonWithIcon = {
   },
 };
 
+export const ButtonWarning = {
+  args: {
+    label: 'Button',
+    backgroundColor: 'warning',
+    color:"white"
+  },
+};
+
+export const ButtonDanger = {
+  args: {
+    label: 'Button',
+    backgroundColor: 'danger',
+    color:"white"
+  },
+};
+
 export const ButtonOnlyIcon = {
   args: {
     icon: '/iconAdd.svg',
     onlyIcon: true,
     backgroundColor: 'primary',
+  },
+};
+
+export const ButtonCancel = {
+  args: {
+    label: 'Button',
+    buttonStyle: 'normal',
+    backgroundColor: 'white',
+    color: 'gray',
+    borderColor: 'gray',
   },
 };
 
