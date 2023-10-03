@@ -1,13 +1,24 @@
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ExclamationCircleIcon, ExclamationTriangleIcon, CheckCircleIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 
-
-
-const Alert = ({ title, message, onClose, type, ...props }) => {
+const Alert = ({ title, message, onClose, type, autoHide = false, hideDuration = 3000, ...props }) => {
     const [showAlert, setShowAlert] = useState(true);
+
+    useEffect(() => {
+        let timer;
+        if (autoHide) {
+            timer = setTimeout(() => {
+                setShowAlert(false);
+                onClose();
+            }, hideDuration);
+        }
+        return () => {
+            if (timer) clearTimeout(timer);
+        };
+    }, [autoHide, hideDuration, onClose]);
 
     const handleClose = () => {
         setShowAlert(false);
@@ -28,23 +39,14 @@ const Alert = ({ title, message, onClose, type, ...props }) => {
         "bg-danger": type === "error"
     });
 
-    let Icon;
-    switch (type) {
-        case "information":
-            Icon = ExclamationCircleIcon;
-            break;
-        case "caution":
-            Icon = ExclamationTriangleIcon;
-            break;
-        case "success":
-            Icon = CheckCircleIcon;
-            break;
-        case "error":
-            Icon = XCircleIcon;
-            break;
-        default:
-            Icon = ExclamationCircleIcon;
-    }
+    const iconMap = {
+        information: ExclamationCircleIcon,
+        caution: ExclamationTriangleIcon,
+        success: CheckCircleIcon,
+        error: XCircleIcon,
+      };
+      
+    const Icon = iconMap[type] || ExclamationCircleIcon;
 
     const titleClass = classNames({
         "font-medium": true,
@@ -56,7 +58,7 @@ const Alert = ({ title, message, onClose, type, ...props }) => {
 
     return (
         showAlert && (
-            <div className= "rounded-xl overflow-hidden shadow-md flex items-center justify-items-start w-96 h-14" {...props}>
+            <div className= "fixed top-0 right-0 z-50 rounded-xl overflow-hidden shadow-md flex items-center justify-items-start w-96 h-14" {...props}>
                 <div className={alertClass}>
                     <Icon className={iconClass} />
                 </div>
@@ -77,6 +79,8 @@ Alert.propTypes = {
     message: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
     type: PropTypes.oneOf(["information", "caution", "success", "error"]),
+    autoHide: PropTypes.bool,
+    hideDuration: PropTypes.number
 };
 
 export default Alert;

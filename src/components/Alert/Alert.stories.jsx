@@ -1,8 +1,18 @@
 import Alert from "./Alert";
 
+
+
 export default {
     title: 'components/Alert',
     component: Alert,
+    decorators: [
+        (Story) => (
+          <div style={{ padding: '3em', position: 'relative', height: '20vh', width: '30vw' }}>
+            {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+            <Story />
+          </div>
+        ),
+      ],
     parameters: {
         layout: 'centered',
         status: {
