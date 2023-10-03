@@ -1,29 +1,48 @@
 import { Box } from "@mui/material";
 import { DataGrid, esES } from "@mui/x-data-grid"
 import PropTypes from "prop-types";
-import './utils/table.css'
-import CustomPagination from "./utils/CustomPagination/CustomPagination";
+import './utils/styles/table.css'
+import CustomPagination from "./utils/components/CustomPagination";
 
 
-const Table = ({ height, width, row, columns, pageSize, isLoading, onPageChange, ...props }) => {
+const Table = ({ height, width, rows, columns, pageSize, isLoading, onPageChange, ...props }) => {
+
   return (
     <Box sx={{ height: height, width: width }}>
       <DataGrid
-        rows={row}
+        rows={rows}
         columns={columns}
-        pageSize={pageSize}
+        initialState={{
+          pagination: {
+            paginationModel: { pageSize: pageSize },
+          },
+        }}
 
         loading={isLoading}
         onPageChange={onPageChange}
         disableColumnSelector
+        disableColumnFilter
+        disableSelectionOnClick
+
         autoHeight
         hideFooterSelectedRowCount
-
-        rowHeight={40}
+        onCellKeyDown={(params, event) => {
+          event.stopPropagation();
+        }}
+        rowHeight={38}
+        headerHeight={40}
         localeText={esES.components.MuiDataGrid.defaultProps.localeText}
         slotProps={{
+          loadingOverlay: {
+            style: { marginTop: "-1.1rem", zIndex: 4 },
+            color: "secondary",
+          },
+
+        }}
+        slots={{
+          pagination: CustomPagination,
           filterPanel: null,
-          pagination: CustomPagination
+
         }}
 
         {...props}
@@ -40,12 +59,12 @@ Table.propTypes = {
    * The height of the table
    * @param {number or string} height
    */
-  height: PropTypes.number,
+  height: PropTypes.string,
   /**
    * The width of the table
    * @param {number or string} width
    */
-  width: PropTypes.number,
+  width: PropTypes.string,
   /**
    * The columns of the table
    * @param {array} columns
@@ -53,9 +72,9 @@ Table.propTypes = {
   columns: PropTypes.array.isRequired,
   /**
    * The rows of the table
-   * @param {array} row
+   * @param {array} rows
    */
-  row: PropTypes.array.isRequired,
+  rows: PropTypes.array.isRequired,
 
   /**
    * The page size of the table

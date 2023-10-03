@@ -12,6 +12,7 @@
   display: flex;
   align-items: center !important;
   justify-content: center !important;
+  width: max-content !important;
 }
 
 .MuiDataGrid-root {
@@ -35,6 +36,8 @@
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.01663rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .MuiDataGrid-columnHeadersInner,
@@ -52,41 +55,42 @@
   border: 0.5px solid #dadada !important;
   border-radius: 1rem !important;
   background-color: #fff !important;
-  /* width: max-content; */
-  width: 100% !important;
+  width: 813px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .MuiDataGrid-cell {
   text-align: center !important;
   justify-content: center !important;
+  align-items: center !important;
   border: none !important;
   height: 2.375rem !important;
   font-size: 1rem;
+  padding: 0 0.7rem !important;
 }
-/* .MuiDataGrid-virtualScroller {
-  overflow: hidden !important;
-  width: 100% !important;
-  height: auto !important;
-  gap: 8px;
-} */
+
 .MuiDataGrid-virtualScrollerContent {
-  /* overflow: hidden !important; */
-  /* width: 100% !important; */
-  /* height: auto !important; */
-  margin-left: 0.87rem;
-  margin-right: 0.87rem;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  padding-left: 0.87rem;
+  padding-right: 0.87rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: auto !important;
 }
 
 .MuiDataGrid-virtualScrollerRenderZone {
   display: flex;
   flex-direction: column;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
   gap: 0.5rem;
-  /* height: auto !important; */
-  width: 56.75rem !important;
-  /* border: none !important; */
-  /* padding: 8px; */
+  width: 813px !important;
 }
 
 .MuiDataGrid-columnHeaderRow {
@@ -95,7 +99,7 @@
 
 .MuiDataGrid-root {
   border-radius: 16px !important;
-  /* font-family: "Montserrat" !important; */
+
   border: none !important;
 }
 
@@ -104,59 +108,59 @@
   border-radius: 16px;
   background-color: #fdfdfd;
   margin-bottom: 1.81rem;
-  /* width: 60.625rem !important; */
-  /* height: 28.25rem; */
 }
 
-.MuiPaginationItem-firstLast .MuiSvgIcon-root {
-  background: #fff;
-  border-radius: 999px;
-  border: 2px solid #3c5cd2;
-  color: #3c5cd2;
-}
-.MuiPaginationItem-firstLast.Mui-disabled .MuiSvgIcon-root {
-  background: #fff;
-  border-radius: 999px;
-  border: 2px solid #e4e4e4;
-  color: #e4e4e4;
-}
-
-/* .MuiTablePagination-spacer,
-.MuiTablePagination-displayedRows,
-.MuiDataGrid-selectedRowCount {
-  font-family: "Ubuntu" !important;
-} */
-
-.MuiPaginationItem-text {
-  font-size: 12px;
-}
-.MuiPaginationItem-circular {
-  display: flex;
-  flex-direction: column;
-  font-weight: 500;
-  height: 20px;
-  justify-items: center;
-  width: 20px;
+.MuiPaginationItem-root {
+  padding: 16px !important;
+  width: 1.75rem !important;
+  height: 1.75rem !important;
 }
 
 .MuiDataGrid-footerContainer {
-  border: none;
-  align-self: center;
+  border: none !important;
+  align-self: center !important;
 }
 
 .MuiDataGrid-panel {
   width: 85%;
 }
 
-.MuiDataGrid-row .MuiSvgIcon-root {
-  visibility: hidden;
+.MuiTablePagination-spacer,
+.MuiTablePagination-displayedRows,
+.MuiDataGrid-selectedRowCount {
+  font-family: "Ubuntu" !important;
 }
 
-/* .MuiDataGrid-columnHeaderRow {
-  background-color: #3c5cd2;
-  border-top-left-radius: 9px !important;
-  border-top-right-radius: 9px !important;
-  color: white;
-  font-weight: 600;
-  font-size: 1.125rem;
-} */
+.MuiPaginationItem-text {
+  font-size: 12px !important;
+}
+.MuiPaginationItem-circular {
+  display: flex !important;
+  flex-direction: column !important;
+  font-family: "Ubuntu" !important;
+  font-weight: 500 !important;
+  height: 20px !important;
+  justify-items: center !important;
+  width: 20px !important;
+}
+
+.MuiPaginationItem-firstLast .MuiSvgIcon-root {
+  background: #fff !important;
+  border-radius: 999px !important;
+  border: 2px solid #3c5cd2 !important;
+  color: #3c5cd2 !important;
+}
+
+.MuiPaginationItem-firstLast.Mui-disabled .MuiSvgIcon-root {
+  background: #fff !important;
+  border-radius: 999px !important;
+  border: 2px solid #e4e4e4 !important;
+  color: #e4e4e4 !important;
+}
+
+.MuiPaginationItem-root.Mui-selected {
+  background: #565ac5 !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  font-size: 14px !important;
+}

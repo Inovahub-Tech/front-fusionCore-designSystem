@@ -6,7 +6,7 @@ import {
 } from "@mui/x-data-grid";
 import { useState } from "react";
 import { Pagination } from "@mui/material";
-import '../table.css'
+import '../../styles/table.css'
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -21,7 +21,7 @@ function CustomPagination() {
   };
 
   return (
-    <div className="flex justify-start items-center gap-2 mt-8">
+    <div className="flex justify-start items-center gap-2">
       <Pagination
         size={"medium"}
         count={pageCount}
@@ -32,7 +32,7 @@ function CustomPagination() {
         showLastButton
         sx={{ fontSize: 20 }}
       />
-      <p className="font-mont text-[12px] text-[#C4C4C4]">
+      <p className="text-[12px] text-[#C4C4C4]">
         Página {page} de {pageCount}
       </p>
     </div>

@@ -6,7 +6,7 @@ import classNames from "classnames";
  * Use it for key and highlighted actions in the user interface.
  */
 export const Button = ({
-  buttonStyle,
+  onlyIcon,
   backgroundColor,
   color,
   disabled,
@@ -14,6 +14,7 @@ export const Button = ({
   icon,
   size,
   label,
+  className,
   ...props
 }) => {
 
@@ -43,7 +44,7 @@ export const Button = ({
   });
 
   const modeDisabled = classNames({
-    "bg-secondary cursor-not-allowed": disabled,
+    "bg-secondary cursor-not-allowed": disabled === true,
   });
 
   const modeIcon = classNames({
@@ -56,8 +57,8 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={` w-full flex items-center  ${modeSize} ${modeBorderColor} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${icon && "gap-2"
-        } ${buttonStyle === "onlyIcon" ? "p-2 rounded-full" : "px-4 py-2"} ${modeBorderColor && "border"}`}
+      className={` w-full flex items-center  ${modeSize} ${modeBorderColor} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${className} ${icon && "gap-2"
+        } ${onlyIcon ? "p-2 rounded-full" : "px-4 py-2"} ${modeBorderColor && "border"}`}
       disabled={disabled}
       {...props}
     >
@@ -72,7 +73,7 @@ Button.propTypes = {
    * What background color to use
    * @default null
    * */
-  backgroundColor: PropTypes.oneOf(["primary", "secondary", "tertiary"]),
+  backgroundColor: PropTypes.oneOf(["primary", "secondary", "tertiary", "white"]),
   /**
    * What color to use
    * @default null
@@ -89,9 +90,9 @@ Button.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   /**
    * Button style
-   * @default filled
+   * @default false
    * */
-  buttonStyle: PropTypes.oneOf(["normal", "onlyIcon"]),
+  onlyIcon: PropTypes.bool,
   /**
    * Button icon
    * @default null
@@ -107,16 +108,20 @@ Button.propTypes = {
    * @default undefined
    * */
   onClick: PropTypes.func.isRequired,
-
   /**
    * Border color
    * @default null
    * */
   borderColor: PropTypes.oneOf(["primary", "secondary", "tertiary"]),
+  /**
+   * Class name
+   * @default null
+   * */
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
-  buttonStyle: "filled",
+  onlyIcon: false,
   backgroundColor: null,
   color: null,
   primary: false,
@@ -125,6 +130,7 @@ Button.defaultProps = {
   disabled: false,
   onClick: undefined,
   borderColor: null,
+  className: null,
 };
 
 export default Button;
