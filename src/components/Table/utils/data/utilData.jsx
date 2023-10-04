@@ -56,11 +56,11 @@ export const columns = [
             return (
               <Button
                 key={index}
-                onlyIcon={true}
+                onlyIcon
                 backgroundColor="primary"
                 onClick={action.function}
                 id={action.id}
-                size={"small"}
+                size='small'
                 icon={'/iconAdd.svg'}
                 className={"w-6 h-6"}
               />
