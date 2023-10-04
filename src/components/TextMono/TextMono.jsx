@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 
-const Headline = ({ children, weight, className, theme, variant }) => {
+const TextMono = ({ children, weight, theme, size }) => {
   const weightClass = {
     regular: "font-regular",
-    medium: "font-medium",
     bold: "font-bold",
   }[weight];
+
+  const sizeClass = {
+    s: "text-xs",
+    m: "text-sm",
+    l: "text-base",
+  }[size];
 
   const themeClass = {
     primary: "text-primary",
@@ -18,20 +23,16 @@ const Headline = ({ children, weight, className, theme, variant }) => {
     gray: "text-gray",
   }[theme];
 
-  return variant === "head" ? (
-    <h3 className={` text-2xl ${weightClass} ${themeClass} ${className}`}>
+  return (
+    <p className={`${sizeClass} ${weightClass} ${themeClass} text-`}>
       {children}
-    </h3>
-  ) : (
-    <h4 className={` text-lg ${weightClass} ${themeClass} ${className}`}>
-      {children}
-    </h4>
+    </p>
   );
 };
 
-Headline.propTypes = {
+TextMono.propTypes = {
   children: PropTypes.node.isRequired,
-  weight: PropTypes.oneOf(["regular", "medium", "bold"]).isRequired,
+  weight: PropTypes.oneOf(["regular", "bold"]),
   theme: PropTypes.oneOf([
     "primary",
     "secondary",
@@ -41,16 +42,14 @@ Headline.propTypes = {
     "success",
     "black",
     "gray",
-  ]).isRequired,
-  className: PropTypes.string,
-  variant: PropTypes.oneOf(["head", "subhead"]).isRequired,
+  ]),
+  size: PropTypes.oneOf(["s", "m", "l"]),
 };
 
-Headline.defaultProps = {
+TextMono.defaultProps = {
   weight: "bold",
   theme: "primary",
-  className: "",
-  variant: "head",
+  size: "head",
 };
 
-export default Headline;
+export default TextMono;

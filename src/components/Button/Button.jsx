@@ -40,8 +40,8 @@ export const Button = ({
   });
 
   const modeSize = classNames({
-    "text-xs rounded-xl": size === "small",
-    "text-sm rounded-2xl": size === "medium",
+    "text-sm rounded-2xl h-10": size === "small",
+    "text-base rounded-3xl h-12": size === "medium",
     "text-lg rounded-3xl": size === "large",
   });
 
@@ -58,9 +58,9 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={` w-full flex items-center justify-center  ${modeSize} ${modeBorderColor} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${
+      className={` w-full flex items-center justify-center round ${modeSize} ${modeBorderColor} ${modeBackgroundColor} ${modeColor} ${modeDisabled} ${
         icon && "gap-2"
-      } ${buttonStyle === "onlyIcon" ? "p-2 rounded-full" : "px-4 py-2"} ${
+      } ${buttonStyle === "onlyIcon" ? "p-2 rounded-full" : "px-4 py-3"} ${
         modeBorderColor && "border"
       }`}
       disabled={disabled}

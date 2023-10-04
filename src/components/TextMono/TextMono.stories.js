@@ -1,8 +1,8 @@
-import Headline from './Headline';
+import TextBody from './TextMono';
 
 export default {
-  title: 'components/Headline',
-  component: Headline,
+  title: 'components/TextMono',
+  component: TextBody,
   parameters: {
     layout: 'centered',
     status: {
@@ -16,8 +16,8 @@ export default {
   tags: ['autodocs']
 };
 
-export const HeadlinePrimary = {
+export const TextMonoPrimary = {
   args: {
-    children: 'Headline Principal',
+    children: 'TextMono Principal',
   },
 };
