@@ -66,7 +66,7 @@ const Input = ({
       {label && (
         <label
           htmlFor={id}
-          className={`block text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
+          className={`text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
         >
           {label} {valueState === "Success" && (<img src="/iconSuccess.svg" />)} {valueState === "Error" && (<img src="/iconError.svg" />)}
         </label>

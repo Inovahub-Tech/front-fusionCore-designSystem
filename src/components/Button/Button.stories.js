@@ -24,7 +24,6 @@ export default {
 export const ButtonFilled = {
   args: {
     label: 'Button',
-    buttonStyle: 'normal',
     backgroundColor: 'primary',
     color: 'white',
   },
@@ -33,7 +32,6 @@ export const ButtonFilled = {
 export const ButtonOutlined = {
   args: {
     label: 'Button',
-    buttonStyle: 'normal',
     backgroundColor: 'white',
     color: 'primary',
     borderColor: 'primary',
@@ -75,7 +73,7 @@ export const ButtonDanger = {
 export const ButtonOnlyIcon = {
   args: {
     icon: '/iconAdd.svg',
-    buttonStyle: "onlyIcon",
+    onlyIcon: true,
     backgroundColor: 'primary',
   },
 };

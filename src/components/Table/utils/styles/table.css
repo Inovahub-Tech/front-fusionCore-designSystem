@@ -1,0 +1,166 @@
+.MuiDataGrid-columnHeaderTitleContainer {
+  align-items: center;
+  justify-content: center;
+  margin-right: 0px !important;
+  height: 40px !important;
+}
+.MuiDataGrid-columnHeader {
+  height: 40px !important;
+}
+.MuiDataGrid-columnHeaderTitle {
+  height: 40px !important;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  width: max-content !important;
+}
+
+.MuiDataGrid-root {
+  width: 60.625rem !important;
+  height: 28.25rem !important;
+}
+
+.MuiDataGrid-columnHeaders {
+  background-color: #565ac5;
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  width: 100%;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  height: 3.125rem !important;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.01663rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.MuiDataGrid-columnHeadersInner,
+.MuiDataGrid-columnHeaders {
+  min-height: 40px !important;
+}
+
+.MuiDataGrid-columnHeader {
+  width: 7.25rem;
+}
+
+.MuiDataGrid-row {
+  font-size: 1rem !important;
+  font-style: normal;
+  border: 0.5px solid #dadada !important;
+  border-radius: 1rem !important;
+  background-color: #fff !important;
+  width: 813px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.MuiDataGrid-cell {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border: none !important;
+  height: 2.375rem !important;
+  font-size: 1rem;
+  padding: 0 0.7rem !important;
+}
+
+.MuiDataGrid-virtualScrollerContent {
+  padding-left: 0.87rem;
+  padding-right: 0.87rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: auto !important;
+}
+
+.MuiDataGrid-virtualScrollerRenderZone {
+  display: flex;
+  flex-direction: column;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5rem;
+  width: 813px !important;
+}
+
+.MuiDataGrid-columnHeaderRow {
+  height: 40px !important;
+}
+
+.MuiDataGrid-root {
+  border-radius: 16px !important;
+
+  border: none !important;
+}
+
+.MuiDataGrid-main {
+  border: 0.5px solid #f0f0f0 !important;
+  border-radius: 16px;
+  background-color: #fdfdfd;
+  margin-bottom: 1.81rem;
+}
+
+.MuiPaginationItem-root {
+  padding: 16px !important;
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+}
+
+.MuiDataGrid-footerContainer {
+  border: none !important;
+  align-self: center !important;
+}
+
+.MuiDataGrid-panel {
+  width: 85%;
+}
+
+.MuiTablePagination-spacer,
+.MuiTablePagination-displayedRows,
+.MuiDataGrid-selectedRowCount {
+  font-family: "Ubuntu" !important;
+}
+
+.MuiPaginationItem-text {
+  font-size: 12px !important;
+}
+.MuiPaginationItem-circular {
+  display: flex !important;
+  flex-direction: column !important;
+  font-family: "Ubuntu" !important;
+  font-weight: 500 !important;
+  height: 20px !important;
+  justify-items: center !important;
+  width: 20px !important;
+}
+
+.MuiPaginationItem-firstLast .MuiSvgIcon-root {
+  background: #fff !important;
+  border-radius: 999px !important;
+  border: 2px solid #3c5cd2 !important;
+  color: #3c5cd2 !important;
+}
+
+.MuiPaginationItem-firstLast.Mui-disabled .MuiSvgIcon-root {
+  background: #fff !important;
+  border-radius: 999px !important;
+  border: 2px solid #e4e4e4 !important;
+  color: #e4e4e4 !important;
+}
+
+.MuiPaginationItem-root.Mui-selected {
+  background: #565ac5 !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  font-size: 14px !important;
+}

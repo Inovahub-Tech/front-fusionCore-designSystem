@@ -72,7 +72,7 @@ const TextField = ({
       {label && (
         <label
           htmlFor={id}
-          className={`block text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
+          className={` text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
         >
           {label} {valueState === "Success" && <img src="/iconSuccess.svg" />}{" "}
           {valueState === "Error" && <img src="/iconError.svg" />}
@@ -82,7 +82,7 @@ const TextField = ({
         id={id}
         name={name}
         placeholder={placeholder}
-        className={`py-3.5 w-52 h-14 px-4 border text-sm border-solid rounded-xl w-full ${modeValueState}`}
+        className={`py-3.5 h-14 px-4 border text-sm border-solid rounded-xl w-full ${modeValueState}`}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         required={isRequeried}
