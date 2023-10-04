@@ -7,11 +7,6 @@ const Headline = ({ children, weight, className, theme, variant }) => {
     bold: "font-bold",
   }[weight];
 
-  const variantClass = {
-    head: "text-2xl",
-    subhead: "text-lg",
-  }[variant];
-
   const themeClass = {
     primary: "text-primary",
     secondary: "text-secondary",
@@ -23,10 +18,14 @@ const Headline = ({ children, weight, className, theme, variant }) => {
     gray: "text-gray",
   }[theme];
 
-  return (
-    <h3 className={`${variantClass} ${weightClass} ${themeClass} ${className}`}>
+  return variant === "head" ? (
+    <h3 className={` text-2xl ${weightClass} ${themeClass} ${className}`}>
       {children}
     </h3>
+  ) : (
+    <h4 className={` text-lg ${weightClass} ${themeClass} ${className}`}>
+      {children}
+    </h4>
   );
 };
 
@@ -44,7 +43,7 @@ Headline.propTypes = {
     "gray",
   ]).isRequired,
   className: PropTypes.string,
-  variant: PropTypes.oneOf(["head", "subHead"]).isRequired,
+  variant: PropTypes.oneOf(["head", "subhead"]).isRequired,
 };
 
 Headline.defaultProps = {
