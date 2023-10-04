@@ -7,12 +7,12 @@ export default {
     component: Alert,
     decorators: [
         (Story) => (
-          <div style={{ padding: '3em', position: 'relative', height: '20vh', width: '30vw' }}>
-            {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
-            <Story />
-          </div>
+            <div style={{ padding: '3em', position: 'relative', height: '20vh', width: '30vw' }}>
+                {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+                <Story />
+            </div>
         ),
-      ],
+    ],
     parameters: {
         layout: 'centered',
         status: {
@@ -20,7 +20,7 @@ export default {
         },
         design: {
             type: "figma",
-            url: "https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?type=design&node-id=29-256&mode=design&t=16xQsIgZvRMWMYC2-4",
+            url: "https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?node-id=29%3A256&mode=dev",
         }
     },
     // This component will have an automatically generated Autodocs page

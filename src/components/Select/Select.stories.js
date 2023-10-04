@@ -10,7 +10,7 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?node-id=2%3A2173&mode=dev",
+      url: "https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?node-id=16%3A6286&mode=dev",
     },
   },
   // This component will have an automatically generated Autodocs page

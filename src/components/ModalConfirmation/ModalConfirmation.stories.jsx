@@ -10,7 +10,7 @@ export default {
     },
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?node-id=28%3A269&mode=dev",
+      url: "https://www.figma.com/file/OlpApHLkO9ynQq4FfUeDkI/Fusion-Core?node-id=36%3A11109&mode=dev",
     },
   },
   tags: ["autodocs"],

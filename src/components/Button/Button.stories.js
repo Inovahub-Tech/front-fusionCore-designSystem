@@ -58,7 +58,7 @@ export const ButtonWarning = {
   args: {
     label: 'Button',
     backgroundColor: 'warning',
-    color:"white"
+    color: "white"
   },
 };
 
@@ -66,7 +66,7 @@ export const ButtonDanger = {
   args: {
     label: 'Button',
     backgroundColor: 'danger',
-    color:"white"
+    color: "white"
   },
 };
 
@@ -75,6 +75,7 @@ export const ButtonOnlyIcon = {
     icon: '/iconAdd.svg',
     onlyIcon: true,
     backgroundColor: 'primary',
+    size: "medium",
   },
 };
 
