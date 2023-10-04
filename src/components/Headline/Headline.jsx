@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 const Headline = ({ children, weight, className, theme, variant }) => {
+
   const weightClass = {
     regular: "font-regular",
     medium: "font-medium",
