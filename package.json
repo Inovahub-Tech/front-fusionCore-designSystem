@@ -1,5 +1,5 @@
 {
-  "name": "design-system-fusion-core",
+  "name": "@inovahub/design-system-fusion-core",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
