@@ -9,6 +9,14 @@ import PropTypes from "prop-types";
 import { Button } from "../Button/Button";
 import Headline from "../Headline/Headline";
 
+/**
+ * Modal Alert Component
+ *
+ * This component is used to display alerts or important messages in the user interface.
+ * It provides consistent layout and customization options for different types of alerts.
+  * It also provides a set of default props that can be used to customize the alert component.
+  * */
+
 const Modals = ({
   typeModal,
   titleMessage,

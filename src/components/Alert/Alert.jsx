@@ -10,6 +10,12 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
+
+/**
+ * This component represents the main alert used for user interaction.
+ * Use it for key and highlighted actions in the user interface.
+ */
+
 const Alert = ({
   title,
   message,

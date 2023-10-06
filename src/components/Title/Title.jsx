@@ -1,5 +1,13 @@
 import PropTypes from "prop-types";
 
+/**
+ * Title Component
+ *
+ * This component is used to display titles or headings in the user interface.
+ * It provides distinctive styling and customization options for different levels of headings.
+ * It also provides a set of default props that can be used to customize the title component.
+ * */
+
 const Title = ({ children, theme, size }) => {
   const themeClass = {
     primary: "text-primary",

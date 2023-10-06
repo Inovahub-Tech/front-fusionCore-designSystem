@@ -1,5 +1,7 @@
 import { Button } from "./Button";
 
+import { PlusCircleIcon, PlusIcon } from "@heroicons/react/24/outline";
+
 
 export default {
   title: 'components/Button',
@@ -50,7 +52,7 @@ export const ButtonWithIcon = {
     label: 'Button',
     backgroundColor: 'primary',
     color: 'white',
-    icon: '/iconAdd.svg',
+    icon: <PlusCircleIcon />,
   },
 };
 
@@ -72,7 +74,8 @@ export const ButtonDanger = {
 
 export const ButtonOnlyIcon = {
   args: {
-    icon: '/iconAdd.svg',
+    icon: <PlusIcon />,
+    color: 'white',
     onlyIcon: true,
     backgroundColor: 'primary',
     size: "medium",

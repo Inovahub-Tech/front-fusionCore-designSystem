@@ -1,5 +1,8 @@
 import Input from "./Input";
 
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+
+
 export default {
   title: 'components/Input',
   component: Input,
@@ -36,9 +39,9 @@ export const InputWhiooutLabel = {
 export const InputSearch = {
   args: {
     label: 'Input',
-    type: 'search',
+    type: 'text',
     placeholder: 'Search',
-    icon: "/iconSearch.svg"
+    icon: <MagnifyingGlassIcon />,
   },
 };
 

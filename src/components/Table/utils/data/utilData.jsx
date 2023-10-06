@@ -1,5 +1,8 @@
 import Button from "../../../Button/Button";
-import ToggleSwitch from "../../../ToggleSwitch/ToggleSwitch";
+
+import { PlusIcon } from "@heroicons/react/24/outline";
+import Toggle from "../../../Toggle/Toggle";
+
 
 
 export const columns = [
@@ -15,7 +18,7 @@ export const columns = [
     width: 116,
     renderCell: (params) => {
       console.log(params);
-      return <ToggleSwitch label={""} />;
+      return <Toggle label={""} />;
     },
   },
   {
@@ -60,9 +63,9 @@ export const columns = [
                 backgroundColor="primary"
                 onClick={action.function}
                 id={action.id}
+                color={"white"}
                 size='small'
-                icon={'/iconAdd.svg'}
-                className={"w-6 h-6"}
+                icon={<PlusIcon />}
               />
             );
           })}

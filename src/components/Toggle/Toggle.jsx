@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export const ToggleSwitch = ({ label, initialStatus, onToggle }) => {
+/**
+ * Toggle Switch Component
+ *
+ * This component provides an interactive switch that allows users to
+ * Switch between two states (e.g., enabled/disabled, on/off).
+ * It is useful for setting preferences or changing configuration options.
+ * It provides consistent styling and customization options for toggle switches.
+ * It also provides a set of default props that can be used to customize toggle switches.
+ * */
+
+export const Toggle = ({ label, initialStatus, onToggle }) => {
 
   const [isEnabled, setIsEnabled] = useState(initialStatus);
   const [isChecked, setIsChecked] = useState(initialStatus);
@@ -24,7 +34,7 @@ export const ToggleSwitch = ({ label, initialStatus, onToggle }) => {
   );
 };
 
-ToggleSwitch.propTypes = {
+Toggle.propTypes = {
   /**
    * Label for the toggle switch
    */
@@ -41,10 +51,10 @@ ToggleSwitch.propTypes = {
   onToggle: PropTypes.func,
 };
 
-ToggleSwitch.defaultProps = {
+Toggle.defaultProps = {
   // label: "Toggle",
   initialStatus: true,
   onToggle: null,
 };
 
-export default ToggleSwitch;
+export default Toggle;

@@ -2,6 +2,18 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import {
+  ExclamationCircleIcon,
+  ExclamationTriangleIcon,
+  EyeSlashIcon,
+  EyeIcon
+} from "@heroicons/react/24/outline";
+
+import {
+  ExclamationCircleIcon as ExclamationCircleIconSolid,
+  CheckCircleIcon
+} from "@heroicons/react/24/solid";
+
 /**
  * This component represents the main input used for user interaction.
  * Use it for key and highlighted actions in the user interface.
@@ -20,23 +32,27 @@ const Input = ({
   valueState,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [contentMessageError, setContentMessageError] = useState('')
+  const [contentMessageError, setContentMessageError] = useState("");
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     if (!messageError) {
-      setContentMessageError('Campo requerido')
+      setContentMessageError("Campo requerido");
     } else {
-      setContentMessageError(messageError)
+      setContentMessageError(messageError);
     }
-  }, [messageError])
+  }, [messageError]);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   const handleKeyDown = (event) => {
-    if ((event.key === "Enter" || event.key === "Tab") && isRequeried && !event.target.value) {
+    if (
+      (event.key === "Enter" || event.key === "Tab") &&
+      isRequeried &&
+      !event.target.value
+    ) {
       setShowError(true);
     } else {
       setShowError(false);
@@ -61,6 +77,15 @@ const Input = ({
 
   const inputType = type === "password" && !showPassword ? "password" : "text";
 
+  const iconMap = {
+    Information: ExclamationCircleIcon,
+    Caution: ExclamationTriangleIcon,
+    Success: CheckCircleIcon,
+    Error: ExclamationCircleIconSolid,
+  };
+
+  const Icon = iconMap[valueState];
+
   return (
     <div className="w-52 h-14 gap-1 flex flex-col">
       {label && (
@@ -68,17 +93,18 @@ const Input = ({
           htmlFor={id}
           className={`text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
         >
-          {label} {valueState === "Success" && (<img src="/iconSuccess.svg" />)} {valueState === "Error" && (<img src="/iconError.svg" />)}
+          {label} {valueState !== "None" && <Icon className="w-4" />}
         </label>
       )}
       <div className="relative">
         {icon && (
-          <img
-            src={icon}
-            alt="icon"
-            className="absolute right-4 top-1/2 transform -translate-y-1/2"
-          />
+          <div
+            className={"absolute right-4 top-1/2 transform -translate-y-1/2 w-6"}
+          >
+            {icon}
+          </div>
         )}
+
         <div className="flex flex-col">
           <input
             type={inputType}
@@ -92,9 +118,9 @@ const Input = ({
             onKeyDown={handleKeyDown}
           />
           <p>
-            {(showError || messageError) && (<p className="text-danger text-xs">
-              {contentMessageError}
-            </p>)}
+            {(showError || messageError) && (
+              <p className="text-danger text-xs">{contentMessageError}</p>
+            )}
           </p>
         </div>
 
@@ -104,16 +130,13 @@ const Input = ({
             onClick={togglePasswordVisibility}
             className="absolute right-4 top-1/2 transform -translate-y-1/2"
           >
-            <img
-              src={
-                !showPassword
-                  ? "/iconShowPassword.svg"
-                  : "/iconNoShowPassword.svg"
-              }
-              alt="eye"
-              width="20"
-              height="20"
-            />
+            {
+              showPassword ? (
+                <EyeSlashIcon className="w-5" />
+              ) : (
+                <EyeIcon className="w-5" />
+              )
+            }
           </button>
         )}
       </div>
@@ -124,42 +147,52 @@ const Input = ({
 Input.propTypes = {
   /**
    * The label of the input
+   * @default ""
    */
   label: PropTypes.string,
   /**
    * The type of the input
+   * @default text
    */
   type: PropTypes.oneOf(["text", "password", "number", "email", "tel", "url"]),
   /**
    * The id of the input
+   * @default ""
    */
   id: PropTypes.string,
   /**
    * The name of the input
+   * @default ""
    */
   name: PropTypes.string,
   /**
    * The onChange function of the input
+   * @default () => {}
    */
   onChange: PropTypes.func,
   /**
    * The placeholder of the input
+   * @default "Escribe"
    */
   placeholder: PropTypes.string,
   /**
    * The disabled state of the input
+   * @default false
    */
   disabled: PropTypes.bool,
   /**
    * The required state of the input
+   * @default false
    */
   isRequeried: PropTypes.bool,
   /**
    * The icon of the input
+   *  @default null
    */
-  icon: PropTypes.string,
+  icon: PropTypes.node,
   /**
    * The valueState of the input
+   * @default None
    */
   valueState: PropTypes.oneOf([
     "None",
@@ -171,6 +204,7 @@ Input.propTypes = {
 
   /**
    * The messageError of the input
+   * @default ""
    */
   messageError: PropTypes.string,
 };
@@ -184,7 +218,7 @@ Input.defaultProps = {
   placeholder: "Escribe",
   disabled: false,
   isRequeried: false,
-  icon: "",
+  icon: null,
   valueState: "None",
   messageError: "",
 };

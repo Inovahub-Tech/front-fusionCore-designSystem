@@ -1,33 +1,40 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import {
+  ExclamationCircleIcon,
+  ExclamationTriangleIcon,
+} from "@heroicons/react/24/outline";
+
+import {
+  ExclamationCircleIcon as ExclamationCircleIconSolid,
+  CheckCircleIcon,
+} from "@heroicons/react/24/solid";
+
+/**
+ * Select Component
+ *
+ * This component provides an interactive menu that displays a list of options when activated.
+ * It is used to allow users to select an option from a predefined set.
+ * It provides consistent styling and customization options for selects.
+ * It also provides a set of default props that can be used to customize
+ *
+ * */
+
 function Select({
   options,
-  onSelect,
   label,
   id,
+  name,
   valueState,
   disabled,
+  value,
+  defaultValue,
+  setFormValue,
+  placeholderText,
+  loading,
   ...props
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState([
-    {
-      label: "",
-      value: "",
-    },
-  ]);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-    onSelect(option);
-  };
 
   const modeLabel = classNames({
     "text-gray-700": valueState === "None",
@@ -38,92 +45,174 @@ function Select({
   });
 
   const modeValueState = classNames({
-    "border-gray": valueState === "None",
+    "border-lightgray": valueState === "None",
     "border-danger": valueState === "Error",
     "border-warning": valueState === "Warning",
     "border-success": valueState === "Success",
     "border-info": valueState === "Information",
   });
 
-  const modeDisabled = classNames({
-    "bg-lightgray text-[#CCCCCC] cursor-not-allowed": disabled,
-  });
+  const iconMap = {
+    Information: ExclamationCircleIcon,
+    Caution: ExclamationTriangleIcon,
+    Success: CheckCircleIcon,
+    Error: ExclamationCircleIconSolid,
+  };
 
-  console.log("selectedOption", selectedOption);
+  const Icon = iconMap[valueState];
 
   return (
     <div>
       {label && (
         <label
           htmlFor={id}
-          className={`text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
+          className={`text-sm font-medium flex flex-row items-center gap-1 ${modeLabel}`}
         >
-          {label} {valueState === "Success" && <img src="/iconSuccess.svg" />}{" "}
-          {valueState === "Error" && <img src="/iconError.svg" />}
+          {label} {valueState !== "None" && <Icon className="w-4" />}
         </label>
       )}
-      <div className="relative inline-block text-left">
-        <div>
-          <button
-            onClick={toggleDropdown}
-            type="button"
-            className={`inline-flex items-center justify-between w-full px-4 py-3 text-sm font-medium bg-white border rounded-xl focus:outline-none focus:ring focus:ring-indigo-100 ${modeValueState} ${selectedOption.label ? "text-gray-700" : "text-gray"} ${modeDisabled}`}
-            id="options-menu"
-            aria-haspopup="listbox"
-            aria-expanded={isOpen}
-            aria-labelledby="options-menu"
-            disabled={disabled}
-            {...props}
-          >
-            {selectedOption?.label || "Selecciona una opción"}
-            <img
-              src="/iconArrowUp.svg"
-              className={`ml-2 transform ${!isOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-        </div>
-
-        {isOpen && (
-          <ul className="origin-top-right absolute right-0 mt-2 rounded-md w-full shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-            {options.map((option) => (
-              <li
-                key={option.value}
-                onClick={() => handleOptionSelect(option)}
-                className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-indigo-100"
-                role="menuitem"
-                {...props}
+      <select
+        disabled={disabled}
+        placeholder={placeholderText}
+        name={name}
+        id={id}
+        value={value}
+        defaultValue={defaultValue}
+        onChange={
+          (e) => {
+            const optionSelect = options.find((option) => option.value === e.target.value);
+            setFormValue && setFormValue((values) => ({ ...values, [name]: optionSelect.data || "" }));
+          }
+        }
+        className={`inline-flex items-center justify-between w-full  px-4 py-3 text-sm font-medium bg-white border  rounded-xl focus:outline-none focus:ring focus:ring-indigo-100 ${modeValueState} ${disabled ? "bg-antiflashwhite border-lightgray text-[#CCCCCC] cursor-not-allowed" : "cursor-pointer"}`}
+        {...props}
+      >
+        <option disabled value="" className="items-center flex">
+          {loading ? "Cargando..." : placeholderText}
+        </option>
+        {options.map(
+          (option, index) => {
+            console.log("option", option)
+            return (
+              <option
+                key={index}
+                value={option.value}
               >
-                {option.label}
-              </li>
-            ))}
-          </ul>
+                {option.label || option.value}
+              </option>
+            );
+          }
         )}
-      </div>
+      </select>
     </div>
   );
 }
 
 Select.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
-  onSelect: PropTypes.func,
+
+  /**
+   * The label for the select.
+   * 
+   * @string  Label
+   *
+   */
   label: PropTypes.string,
+
+  /**
+   * The id for the select.
+   * 
+   * @string  Id
+   *
+   */
   id: PropTypes.string,
-  valueState: PropTypes.oneOf([
-    "None",
-    "Error",
-    "Warning",
-    "Success",
-    "Information",
-  ]),
+
+  /**
+   * The name for the select.
+   * 
+   * @string  Name
+   *
+   */
+  name: PropTypes.string,
+
+  /**
+   * The valueState for the select.
+   * 
+   * @string  ValueState
+   *
+   */
+  valueState: PropTypes.oneOf(["None", "Error", "Warning", "Success", "Information"]),
+  /**
+   * The disabled for the select.
+   * 
+   * @boolean  Disabled
+   *
+   */
   disabled: PropTypes.bool,
+  /**
+   * The value for the select.
+   * 
+   * @string  Value
+   *
+   */
+  value: PropTypes.string,
+  /**
+   * The defaultValue for the select.
+   * 
+   * @string  DefaultValue
+   *
+   */
+  defaultValue: PropTypes.string,
+  /**
+   * The setFormValue for the select.
+   * 
+   * @function  SetFormValue
+   *
+   */
+  setFormValue: PropTypes.func,
+  /**
+   * The placeholderText for the select.
+   * 
+   * @string  PlaceholderText
+   *
+   */
+  placeholderText: PropTypes.string,
+  /**
+   * The loading for the select.
+   * 
+   * @boolean  Loading
+   *
+   */
+  loading: PropTypes.bool,
+  /**
+   * The options for the select.
+   * 
+   * @array  Options
+   *
+   */
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+      data: PropTypes.any,
+    })
+  ).isRequired,
+
 };
 
 Select.defaultProps = {
-  onSelect: () => { },
+
   label: "",
   id: "",
+  name: "",
+  width: "",
   valueState: "None",
   disabled: false,
+  value: "",
+  defaultValue: "",
+  placeholderText: "",
+  loading: false,
+  options: [],
+
 };
 
 export default Select;
