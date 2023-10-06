@@ -1,4 +1,5 @@
 import Select from "./Select";
+import { dataOptions, transformForSelect } from "./utils/data/data";
 
 export default {
   title: "components/Select",
@@ -19,37 +20,53 @@ export default {
 
 // More on writing stories with args
 
+
 export const SelectPrimary = {
   args: {
     label: "Dropdown label",
-    options: [
-      { value: "1", label: "Option 1" },
-      { value: "2", label: "Option 2" },
-      { value: "3", label: "Option 3" },
-    ],
+    options: transformForSelect(dataOptions || [], "name", "code"),
+    placeholderText: "Selecciona una opcion",
+
+  },
+};
+
+export const SelectDataValue = {
+  args: {
+    label: "Dropdown label",
+    options: transformForSelect(dataOptions || [], "name", "code"),
+    placeholderText: "Selecciona una opcion",
+    value: "op2",
   },
 };
 
 export const SelectDisabled = {
   args: {
     label: "Dropdown label",
-    options: [
-      { value: "1", label: "Option 1" },
-      { value: "2", label: "Option 2" },
-      { value: "3", label: "Option 3" },
-    ],
+    options: transformForSelect(dataOptions || [], "name", "code"),
     disabled: true,
+    placeholderText: "Selecciona una opcion",
+
   },
 };
 
 export const SelectError = {
   args: {
     label: "Dropdown label",
-    options: [
-      { value: "1", label: "Option 1" },
-      { value: "2", label: "Option 2" },
-      { value: "3", label: "Option 3" },
-    ],
+    options: transformForSelect(dataOptions || [], "name", "code"),
     valueState: "Error",
+    placeholderText: "Selecciona una opcion",
+
   },
 };
+
+export const SelectSuccess = {
+  args: {
+    label: "Dropdown label",
+    options: transformForSelect(dataOptions || [], "name", "code"),
+    valueState: "Success",
+    placeholderText: "Selecciona una opcion",
+
+  },
+};
+
+
