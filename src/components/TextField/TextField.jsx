@@ -13,6 +13,14 @@ import {
   CheckCircleIcon
 } from "@heroicons/react/24/solid";
 
+/**
+ * Text Field Component
+ *
+ * This component allows users to enter and edit text.
+ * It provides an interactive area for data entry.
+ * It also provides a set of default props that can be used to customize the text field component.
+ * */
+
 const TextField = ({
   label,
   placeholder,

@@ -1,5 +1,13 @@
 import PropTypes from "prop-types";
 
+/**
+ * Body Text Component
+ *
+ * This component is used to display text in the body of the user interface.
+ * It provides a readable text style and formatting suitable for long paragraphs or sections of content.
+ * It also provides a set of default props that can be used to customize the body text component.
+ * */
+
 const TextBody = ({ children, weight, theme, size, alignment }) => {
   const weightClass = {
     regular: "font-regular",

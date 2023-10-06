@@ -1,5 +1,14 @@
 import PropTypes from "prop-types";
 
+/**
+ * Headline Component
+ *
+ * This component is used to render headlines in the user interface.
+ * It provides consistent styling and customization options for headlines.
+ * It also provides a set of default props that can be used to customize
+ * the subtitle component.
+ * */
+
 const Headline = ({ children, weight, className, theme, variant }) => {
 
   const weightClass = {

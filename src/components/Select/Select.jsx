@@ -11,6 +11,15 @@ import {
   CheckCircleIcon,
 } from "@heroicons/react/24/solid";
 
+/**
+ * Select Component
+ *
+ * This component provides an interactive menu that displays a list of options when activated.
+ * It is used to allow users to select an option from a predefined set.
+ * It provides consistent styling and customization options for selects.
+ * It also provides a set of default props that can be used to customize
+ *
+ * */
 
 function Select({
   options,

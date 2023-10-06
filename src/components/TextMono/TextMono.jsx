@@ -1,5 +1,14 @@
 import PropTypes from "prop-types";
 
+/**
+ * Mono Text Component
+ *
+ * This component is used to render text in a mono font style.
+ * It provides a uniform text format in which each character occupies the same width,
+ * which is useful for displaying code, commands or formatted information.
+ * It also provides a set of default props that can be used to customize the mono text component.
+ * */
+
 const TextMono = ({ children, weight, theme, size }) => {
   const weightClass = {
     regular: "font-regular",

@@ -1,9 +1,9 @@
-import { ToggleSwitch } from "./ToggleSwitch";
+import Toggle from "./Toggle";
 
 
 export default {
-  title: 'components/ToggleSwitch',
-  component: ToggleSwitch,
+  title: 'components/Toggle',
+  component: Toggle,
   parameters: {
     layout: 'centered',
     status: {

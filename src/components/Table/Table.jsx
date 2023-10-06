@@ -4,6 +4,13 @@ import PropTypes from "prop-types";
 import './utils/styles/table.css'
 import CustomPagination from "./utils/components/CustomPagination";
 
+/**
+ * Table Component
+ *
+ * This component renders a table to display data in organized rows and columns.
+ * It provides customization options and functionalities such as sorting and pagination.
+ * It also provides a set of default props that can be used to customize the table component.
+ * */
 
 const Table = ({ height, width, rows, columns, pageSize, isLoading, onPageChange, ...props }) => {
 

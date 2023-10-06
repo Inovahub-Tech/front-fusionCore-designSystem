@@ -1,6 +1,7 @@
 import Button from "../../../Button/Button";
-import ToggleSwitch from "../../../ToggleSwitch/ToggleSwitch";
+
 import { PlusIcon } from "@heroicons/react/24/outline";
+import Toggle from "../../../Toggle/Toggle";
 
 
 
@@ -17,7 +18,7 @@ export const columns = [
     width: 116,
     renderCell: (params) => {
       console.log(params);
-      return <ToggleSwitch label={""} />;
+      return <Toggle label={""} />;
     },
   },
   {
