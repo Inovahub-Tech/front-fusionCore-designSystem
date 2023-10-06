@@ -65,7 +65,7 @@ export const Button = ({
       {...props}
     >
       {label}
-      {icon && <img src={icon} alt={label} className={modeIcon} />}
+      {icon && <div className={modeIcon}>{icon}</div>}
     </button>
   );
 };

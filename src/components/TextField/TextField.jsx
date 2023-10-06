@@ -3,6 +3,16 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import TextBody from "../TextBody";
 
+import {
+  ExclamationCircleIcon,
+  ExclamationTriangleIcon
+} from "@heroicons/react/24/outline";
+
+import {
+  ExclamationCircleIcon as ExclamationCircleIconSolid,
+  CheckCircleIcon
+} from "@heroicons/react/24/solid";
+
 const TextField = ({
   label,
   placeholder,
@@ -67,6 +77,15 @@ const TextField = ({
     "border-info": valueState === "Information",
   });
 
+  const iconMap = {
+    Information: ExclamationCircleIcon,
+    Caution: ExclamationTriangleIcon,
+    Success: CheckCircleIcon,
+    Error: ExclamationCircleIconSolid,
+  };
+
+  const Icon = iconMap[valueState];
+
   return (
     <div className="flex flex-col gap-0.5">
       {label && (
@@ -74,8 +93,7 @@ const TextField = ({
           htmlFor={id}
           className={` text-sm font-medium flex flex-row gap-1 ${modeLabel}`}
         >
-          {label} {valueState === "Success" && <img src="/iconSuccess.svg" />}{" "}
-          {valueState === "Error" && <img src="/iconError.svg" />}
+          {label} {valueState !== "None" && <Icon className="w-4" />}
         </label>
       )}
       <textarea
@@ -165,7 +183,7 @@ TextField.defaultProps = {
   id: "",
   valueState: "None",
   maxLength: 100,
-  onChange: () => {},
+  onChange: () => { },
   name: "",
   disabled: false,
   isRequeried: false,
