@@ -3,6 +3,18 @@ import ConfirmationModal from "./ConfirmationModal";
 export default {
   title: "components/ModalConfirmation",
   component: ConfirmationModal,
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: "centered",
     status: {
