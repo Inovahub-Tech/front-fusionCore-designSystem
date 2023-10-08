@@ -14,8 +14,8 @@ import Headline from "../Headline/Headline";
  *
  * This component is used to display alerts or important messages in the user interface.
  * It provides consistent layout and customization options for different types of alerts.
-  * It also provides a set of default props that can be used to customize the alert component.
-  * */
+ * It also provides a set of default props that can be used to customize the alert component.
+ * */
 
 const Modals = ({
   typeModal,
@@ -59,15 +59,15 @@ const Modals = ({
           backgroundColor="white"
           color="gray"
           borderColor="gray"
-          size="medium"
+          className={"flex justify-center h-12 rounded-[1.25rem]"}
         ></Button>
         <Button
           buttonStyle="normal"
           backgroundColor={typeModal}
           label={confirmLabel}
           color="white"
-          size="medium"
           onClick={onClickConfirm}
+          className={"flex justify-center h-12 rounded-[1.25rem]"}
         ></Button>
       </div>
     </Modal>
