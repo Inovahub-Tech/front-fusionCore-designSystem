@@ -21,6 +21,10 @@
     "build-storybook": "storybook build",
     "buildLib": "rollup -c"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": "git://github.com/Inovahub-Tech/front-fusionCore-designSystem",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
