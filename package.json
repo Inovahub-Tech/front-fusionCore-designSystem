@@ -1,6 +1,6 @@
 {
   "name": "@inovahub/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Our custom component system design is a highly adaptable and scalable user interface solution designed to provide an exceptional user experience in web and mobile applications. It includes a growing collection of custom-designed components that deliver intuitive functionality and consistent styling for a variety of use cases.",
   "keywords": [
